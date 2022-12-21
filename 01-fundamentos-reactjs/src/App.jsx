@@ -1,9 +1,11 @@
+import { Header } from './components/Header'
+
 import './global.css'
 
 function App() {
 
   return (
-    <h1> Olá Ignite</h1>
+    <Header />
   )
 }
 
