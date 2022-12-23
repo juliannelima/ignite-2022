@@ -10,8 +10,8 @@
 
 .post > header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .post > header time{
@@ -118,4 +118,8 @@
 
 .commentForm button[type=submit]:hover {
   background: var(--green-300);
+}
+
+.commentList {
+  margin-top: 2rem;
 }
