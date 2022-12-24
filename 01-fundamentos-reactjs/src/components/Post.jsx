@@ -26,15 +26,21 @@ export function Post({ author, publichedAt, content }) {
   })
 
   function handleNewCommentChange() {
-    setNewCommentText(event.target.value)
+    setNewCommentText(event.target.value);
   }
 
   function handleCreateNewComment() {
-    event.preventDefault()
+    event.preventDefault();
 
-    setComments([...comments, newCommentText])
+    setComments([...comments, newCommentText]);
 
-    setNewCommentText('')
+    setNewCommentText('');
+  }
+
+  function deleteComment(comment) {
+    const commentsWithoutDeleteOne = comments.filter(c => { return c != comment })
+   
+    setComments(commentsWithoutDeleteOne);
   }
 
   return (
@@ -82,7 +88,13 @@ export function Post({ author, publichedAt, content }) {
       </form>
 
       <div className={styles.commentList}>
-        {comments.map(comment => <Comment key={comment} content={comment}/>)}
+        {comments.map(comment => (
+          <Comment 
+            key={comment} 
+            content={comment} 
+            onDeleteComment={() => deleteComment(comment)}
+          />
+        ))}
       </div>
     </article>
   );
