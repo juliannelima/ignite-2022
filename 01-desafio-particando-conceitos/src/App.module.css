@@ -1,0 +1,6 @@
+.formTask {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: calc(0px - 1.5rem - 6px);
+}
