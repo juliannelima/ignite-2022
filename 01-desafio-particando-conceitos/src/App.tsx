@@ -4,15 +4,18 @@ import { Header } from './Components/Header';
 import styles from './App.module.css';
 
 import './global.css';
+import { ListTask } from './Components/ListTask';
 
 function App() {
    return (
     <>
       <Header />
 
-      <div className={styles.formTask}>
+      <main className={styles.wrapper}>
         <FormTask />
-      </div>
+
+        <ListTask />
+      </main>
     </>
   )
 }

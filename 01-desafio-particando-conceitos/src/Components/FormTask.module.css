@@ -6,7 +6,7 @@
 }
 
 .form input {
-  width: 39.875rem;
+  width: 100%;
   height: 3.375rem;
   padding: 1rem;
 
@@ -54,12 +54,8 @@
 @media (max-width: 768px) {
   .form {
     flex-direction: column;
-    padding: 0 0.5rem;
   }
 
-  .form input {
-    width: 100%;
-  }
 
   .form button {
     width: 100%;
