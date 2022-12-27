@@ -37,6 +37,16 @@ export function FormTask () {
     setTasks(tasks.filter(task => task.id !== id));
   }
 
+  function handleDoneTask(id: number) {
+    setTasks(tasks.map(task => {
+      if(task.id === id ) {
+        return {...task, done: !task.done}
+      } else {
+        return task;
+      }
+    }));
+  }
+
   return (
     <>
       <form className={styles.form} onSubmit={handleCreateTask}>
@@ -78,7 +88,13 @@ export function FormTask () {
         )}
 
         {tasks.map(task => (
-          <CardTask key={task.id} text={task.text} onDeleteTask={() => handleDeleteTask(task.id)}/>
+          <CardTask 
+            key={task.id} 
+            text={task.text} 
+            done={task.done}
+            onDeleteTask={() => handleDeleteTask(task.id)}
+            onDoneTask={() => handleDoneTask(task.id)}
+          />
         ))}
       </div>
     </>

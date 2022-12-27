@@ -6,14 +6,15 @@ interface CardTaskProps {
   done?: boolean;
   text: string;
   onDeleteTask: () => void;
+  onDoneTask: () => void;
 }
 
-export function CardTask({ done = false, text, onDeleteTask }:CardTaskProps) {
+export function CardTask({ done, text, onDeleteTask, onDoneTask }:CardTaskProps) {
   return (
     <form className={styles.task}>
-      <input type="checkbox" />
+      <input type="checkbox" onClick={onDoneTask} defaultChecked={done} />
       
-      <span className={styles.text }>
+      <span className={done ? styles.textDone :styles.text }>
         {text}
       </span>
 
