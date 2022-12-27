@@ -5,9 +5,10 @@ import styles from './CardTask.module.css';
 interface CardTaskProps {
   done?: boolean;
   text: string;
+  onDeleteTask: () => void;
 }
 
-export function CardTask({ done = false, text }:CardTaskProps) {
+export function CardTask({ done = false, text, onDeleteTask }:CardTaskProps) {
   return (
     <form className={styles.task}>
       <input type="checkbox" />
@@ -16,7 +17,7 @@ export function CardTask({ done = false, text }:CardTaskProps) {
         {text}
       </span>
 
-      <button><Trash size={20} /></button>
+      <button type="button" onClick={onDeleteTask}><Trash size={20} /></button>
   </form>
   )
 }
