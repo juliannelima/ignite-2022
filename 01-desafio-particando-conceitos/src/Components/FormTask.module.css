@@ -11,7 +11,7 @@
   padding: 1rem;
 
   background: var(--gray-500);
-  border: 1px solic var(--gray-700);
+  border: 1px solid var(--gray-500);
   border-radius: 8px;
 
   color: var(--gray-300);

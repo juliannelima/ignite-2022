@@ -1,5 +1,7 @@
 import { Clipboard } from 'phosphor-react';
 
+import { CardTask } from './CardTask';
+
 import styles from './ListTask.module.css';
 
 export function ListTask() {
@@ -24,6 +26,9 @@ export function ListTask() {
         
         <span>Crie tarefas e organize seus itens a fazer</span>
       </div>
+
+      <CardTask done/>
+      <CardTask />
     </div>
   )
 }
