@@ -13,8 +13,6 @@ function App() {
 
       <main className={styles.wrapper}>
         <FormTask />
-
-        <ListTask />
       </main>
     </>
   )

@@ -4,20 +4,19 @@ import styles from './CardTask.module.css';
 
 interface CardTaskProps {
   done?: boolean;
+  text: string;
 }
 
-export function CardTask({ done = false }:CardTaskProps) {
+export function CardTask({ done = false, text }:CardTaskProps) {
   return (
     <form className={styles.task}>
-    <input type="checkbox" />
-    
-    <span className={done ? styles.textDone : styles.text}>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-      Id blanditiis qui optio voluptatum, aperiam commodi consectetur
-      officia assumenda delectus impedit soluta nesciunt.
-    </span>
+      <input type="checkbox" />
+      
+      <span className={styles.text }>
+        {text}
+      </span>
 
-    <button><Trash size={24} /></button>
+      <button><Trash size={20} /></button>
   </form>
   )
 }

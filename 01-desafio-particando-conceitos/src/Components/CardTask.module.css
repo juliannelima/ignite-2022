@@ -1,7 +1,6 @@
 .task {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 24px 1fr 24px;
 
   background: var(--gray-500);
   border: 1px solid var(--gray-400);
@@ -20,8 +19,8 @@
 
   font: inherit;
   color: currentColor;
-  width: 1.5rem;
-  height: 1rem;
+  width: 20px;
+  height: 20px;
   border-radius: 90px;
   cursor: pointer;
   border: 2px solid var(--blue);
@@ -38,7 +37,6 @@
   background-color: var(--purple-dark);
   
 }
-
 
 .task input[type="checkbox"]:checked:hover  {
   border: 2px solid var(--purple);
@@ -73,4 +71,12 @@
 .task button:hover {
   background: var(--gray-400);
   color: var(--danger);
+}
+
+@media (max-width: 768px) {
+  .text {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
 }
