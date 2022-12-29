@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
 import { PlusCircle, Clipboard } from 'phosphor-react';
 
@@ -14,8 +14,17 @@ interface Task {
 
 export function FormTask () {
   const [tasks, setTasks] = useState<Task[]>([]);
-
   const [task, setTask] = useState('');
+  const [countTaskDone, setTaskDone] = useState(0);
+
+  useEffect(() => {
+    setTaskDone(tasks.reduce((acc, value) => {
+      if(value.done)
+        acc = acc + 1;
+      return acc;
+    }, 0))
+
+  }, [tasks]);
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     setTask(event.target.value);
@@ -68,12 +77,12 @@ export function FormTask () {
         <header>
           <div className={styles.created}>
             <strong>Tarefas criadas</strong>
-            <span>0</span>
+            <span>{tasks.length}</span>
           </div>
 
           <div className={styles.done}>
             <strong>Concluídos</strong>
-            <span>0</span>
+              <span>{countTaskDone}</span>
           </div>
         </header>
 
