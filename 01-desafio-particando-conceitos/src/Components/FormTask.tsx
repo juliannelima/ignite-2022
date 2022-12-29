@@ -77,12 +77,14 @@ export function FormTask () {
         <header>
           <div className={styles.created}>
             <strong>Tarefas criadas</strong>
+            
             <span>{tasks.length}</span>
           </div>
 
           <div className={styles.done}>
             <strong>Concluídos</strong>
-              <span>{countTaskDone}</span>
+
+            <span>{countTaskDone} de {tasks.length}</span>
           </div>
         </header>
 
