@@ -1,7 +1,5 @@
-import { ButtonContainer } from "./Button.styles";
+import { ButtonContainer } from './Button.styles'
 
 export function Button() {
-  return (
-    <ButtonContainer>Enviar</ButtonContainer>
-  )
+  return <ButtonContainer>Enviar</ButtonContainer>
 }
