@@ -1,7 +1,29 @@
-import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+import {
+  Coffee,
+  Minus,
+  Package,
+  Plus,
+  ShoppingCart,
+  Timer,
+} from 'phosphor-react'
+
 import ImgBanner from '../../assets/ImgBanner.svg'
 
-import { Banner, HomeContainer, Info, Item, Wrapper } from './styles'
+import ImgCoffee from '../../assets/img/Coffee.svg'
+
+import {
+  Banner,
+  ButtonBuy,
+  CoffeeBuy,
+  CoffeeCard,
+  CoffeeList,
+  CounterBuy,
+  HomeContainer,
+  Info,
+  Item,
+  TagList,
+  Wrapper,
+} from './styles'
 
 export function Home() {
   return (
@@ -49,6 +71,56 @@ export function Home() {
 
         <img src={ImgBanner} alt="" />
       </Banner>
+
+      <section>
+        <h2>Nossos Cafés</h2>
+
+        <CoffeeList>
+          {[1, 2, 3, 4, 5, 6].map((coffee) => (
+            <CoffeeCard key={coffee}>
+              <header>
+                <img src={ImgCoffee} alt="Café tradicional" />
+
+                <TagList>
+                  <span>Tradicional</span>
+                  <span>Alcoólico</span>
+                  <span>Gelado</span>
+                </TagList>
+              </header>
+
+              <main>
+                <strong>Expresso Tradicional</strong>
+                <span>
+                  O tradicional café feito com água quente e grãos moídos
+                </span>
+              </main>
+
+              <CoffeeBuy>
+                <section>
+                  <span>R$</span>
+                  <strong> 9,90</strong>
+                </section>
+
+                <div>
+                  <CounterBuy>
+                    <button>
+                      <Minus size={14} />
+                    </button>
+                    <span>1</span>
+                    <button>
+                      <Plus size={14} />
+                    </button>
+                  </CounterBuy>
+
+                  <ButtonBuy>
+                    <ShoppingCart size={22} weight="fill" />
+                  </ButtonBuy>
+                </div>
+              </CoffeeBuy>
+            </CoffeeCard>
+          ))}
+        </CoffeeList>
+      </section>
     </HomeContainer>
   )
 }
