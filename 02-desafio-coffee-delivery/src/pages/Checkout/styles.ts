@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { defaultTheme } from '../../styles/themes/default'
+
 export const CheckoutContainer = styled.main`
   width: 100%;
 
@@ -8,102 +10,32 @@ export const CheckoutContainer = styled.main`
   gap: 2rem;
 `
 
-export const CheckoutInfo = styled.div`
+export const CheckoutCard = styled.section`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   gap: 0.75rem;
-
-  header {
-    font-size: 1.125rem;
-    font-weight: bold;
-    font-family: 'Baloo 2';
-    line-height: 1.5rem;
-
-    color: ${(props) => props.theme['base-subtitle']};
-  }
 `
 
-export const Address = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 2.5rem;
-  gap: 2.5rem;
+export const Title = styled.header`
+  font-size: 1.125rem;
+  font-weight: bold;
+  font-family: 'Baloo 2';
+  line-height: 1.5rem;
 
-  border-radius: 6px;
-  background: ${(props) => props.theme['base-card']};
-
-  div {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-
-    svg {
-      color: ${(props) => props.theme['yellow-dark']};
-    }
-
-    div {
-      display: flex;
-      flex-direction: column;
-
-      span:first-child {
-        color: ${(props) => props.theme['base-subtitle']};
-      }
-
-      span:last-child {
-        color: ${(props) => props.theme['base-text']};
-      }
-    }
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    input {
-      padding: 0.75rem;
-
-      border: 1px solid ${(props) => props.theme['base-button']};
-      border-radius: 4px;
-      background: ${(props) => props.theme['base-input']};
-      color: ${(props) => props.theme['base-text']};
-
-      &::placeholder {
-        color: ${(props) => props.theme['base-text']};
-      }
-    }
-  }
+  color: ${(props) => props.theme['base-subtitle']};
 `
+interface SubtitleProps {
+  variant: keyof typeof defaultTheme
+}
 
-export const InputComplemento = styled.input`
-  flex: 1;
-`
-
-export const InputUF = styled.input`
-  width: 3.75rem;
-`
-
-export const Pay = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-
-  padding: 2.5rem;
-
-  border-radius: 6px;
-  background: ${(props) => props.theme['base-card']};
-`
-
-export const PayHeader = styled.div`
+export const Subtitle = styled.div<SubtitleProps>`
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
 
   svg {
-    color: ${(props) => props.theme['purple-main']};
+    color: ${(props) => props.theme[props.variant]};
   }
 
   div {
@@ -115,10 +47,47 @@ export const PayHeader = styled.div`
     }
 
     span:last-child {
+      font-size: 0.875rem;
       color: ${(props) => props.theme['base-text']};
     }
   }
 `
+
+export const BaseCard = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  gap: 2rem;
+
+  border-radius: 6px;
+  background: ${(props) => props.theme['base-card']};
+`
+
+export const CheckoutAddressCard = styled(BaseCard)`
+  form {
+    display: grid;
+    flex-direction: 1fr 2fr 2fr;
+    gap: 1rem;
+
+    input {
+      padding: 0.75rem;
+
+      border: 1px solid ${(props) => props.theme['base-button']};
+      border-radius: 4px;
+
+      background: ${(props) => props.theme['base-input']};
+
+      color: ${(props) => props.theme['base-text']};
+
+      &::placeholder {
+        color: ${(props) => props.theme['base-label']};
+      }
+    }
+  }
+`
+
+export const CheckoutPayCard = styled(BaseCard)``
 
 export const PayCards = styled.div`
   display: grid;
@@ -130,9 +99,10 @@ export const PayCards = styled.div`
     align-items: center;
     gap: 0.75rem;
 
-    border: 0;
-    border-radius: 6px;
     padding: 1rem;
+
+    border: 1px solid transparent;
+    border-radius: 6px;
     background: ${(props) => props.theme['base-button']};
 
     svg {
@@ -148,44 +118,54 @@ export const PayCards = styled.div`
 
     &:hover {
       background: ${(props) => props.theme['base-hover']};
+      transition: 0.2s;
     }
 
-    &:selected {
+    &:select {
       background: ${(props) => props.theme['purple-light']};
-      color: ${(props) => props.theme['purple-main']};
+      border: 1px solid ${(props) => props.theme['purple-main']};
+      transition: 0.2s;
     }
   }
 `
 
-export const CheckoutCoffeCard = styled.div`
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 0.75rem;
+export const CheckoutCoffeeCard = styled(BaseCard)`
+  border-radius: 6px 44px;
 
-  color: ${(props) => props.theme['base-text']};
+  table {
+    tbody {
+      tr {
+        font-size: 0.875rem;
+        color: ${(props) => props.theme['base-text']};
 
-  header {
-    font-size: 1.125rem;
-    font-weight: bold;
-    font-family: 'Baloo 2';
-    line-height: 1.5rem;
+        td {
+          padding: 0.5rem;
 
-    color: ${(props) => props.theme['base-subtitle']};
+          &:last-child {
+            text-align: right;
+          }
+        }
+
+        &:last-child {
+          color: ${(props) => props.theme['base-subtitle']};
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+      }
+    }
   }
 
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  button {
+    padding: 0.75rem 0.5rem;
 
-    padding: 2.5rem;
-
+    border: 0;
     border-radius: 6px;
-    background: ${(props) => props.theme['base-card']};
 
-    button:last-child {
-    }
+    background: ${(props) => props.theme['yellow-main']};
+
+    color: ${(props) => props.theme.white};
+    font-weight: bold;
+    font-size: 0.875rem;
   }
 `
 
@@ -198,53 +178,4 @@ export const CoffeCardCart = styled.div`
   padding: 0.5rem 0.25rem;
 
   border-bottom: 1px solid ${(props) => props.theme['base-button']};
-`
-
-export const InfoCart = styled.div`
-  div {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    button {
-      display: flex;
-      align-item: center;
-      justify-content: center;
-      padding: 0.5rem;
-      gap: 0.25rem;
-
-      border: 0;
-      border-radius: 6px;
-      background: ${(props) => props.theme['base-button']};
-    }
-  }
-`
-
-export const CoffeCardSummary = styled.table`
-  tr {
-    td {
-      padding: 0.5rem;
-
-      &:last-child {
-        text-align: right;
-      }
-    }
-
-    &:last-child {
-      color: ${(props) => props.theme['base-subtitle']};
-      font-size: 1.25rem;
-      font-weight: bold;
-    }
-  }
-`
-
-export const CoffeCardButton = styled.button`
-  padding: 0.75rem 0.5rem;
-
-  border: 0;
-  border-radius: 6px;
-  background: ${(props) => props.theme['yellow-main']};
-  color: ${(props) => props.theme.white};
-
-  font-weight: bold;
 `

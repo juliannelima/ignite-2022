@@ -9,56 +9,53 @@ import {
 
 import ImgCoffee from '../../assets/img/Coffee.svg'
 
-import {
-  Address,
-  CheckoutCoffeCard,
-  CheckoutContainer,
-  CheckoutInfo,
-  CoffeCardButton,
-  CoffeCardCart,
-  CoffeCardSummary,
-  InfoCart,
-  InputComplemento,
-  InputUF,
-  Pay,
-  PayCards,
-  PayHeader,
-} from './styles'
 import { Counter } from '../../components/Counter'
+
+import {
+  CheckoutAddressCard,
+  CheckoutCard,
+  CheckoutCoffeeCard,
+  CheckoutContainer,
+  CheckoutPayCard,
+  CoffeCardCart,
+  PayCards,
+  Subtitle,
+  Title,
+} from './styles'
 
 export function Checkout() {
   return (
     <CheckoutContainer>
-      <CheckoutInfo>
-        <header>Complete seu pedido</header>
+      <CheckoutCard>
+        <Title>Complete seu pedido</Title>
 
-        <Address>
-          <div>
+        <CheckoutAddressCard>
+          <Subtitle variant="yellow-dark">
             <MapPinLine size={22} />
 
             <div>
               <span>Endereço de Entrega</span>
               <span>Informe o endereço onde deseja receber seu pedido</span>
             </div>
-          </div>
+          </Subtitle>
 
           <form>
             <input type="text" placeholder="CEP" required />
             <input type="text" placeholder="Rua" required />
             <div>
               <input type="text" placeholder="Número" required />
-              <InputComplemento type="text" placeholder="Complemento" />
+              {/* <InputComplemento type="text" placeholder="Complemento" /> */}
             </div>
             <div>
               <input type="text" placeholder="Bairro" required />
               <input type="text" placeholder="Cidade" required />
-              <InputUF type="text" placeholder="UF" required />
+              {/* <InputUF type="text" placeholder="UF" required /> */}
             </div>
           </form>
-        </Address>
+        </CheckoutAddressCard>
 
-        <Pay>
-          <PayHeader>
+        <CheckoutPayCard>
+          <Subtitle variant="purple-main">
             <CurrencyDollar size={22} />
 
             <div>
@@ -67,7 +64,7 @@ export function Checkout() {
                 O pagamento é feito na entrega. Escolha a forma que deseja pagar
               </span>
             </div>
-          </PayHeader>
+          </Subtitle>
 
           <PayCards>
             <button>
@@ -83,51 +80,63 @@ export function Checkout() {
               <span>dinheiro</span>
             </button>
           </PayCards>
-        </Pay>
-      </CheckoutInfo>
+        </CheckoutPayCard>
+      </CheckoutCard>
 
-      <CheckoutCoffeCard>
-        <header>Cafés selecionados</header>
+      <CheckoutCard>
+        <Title>Cafés selecionados</Title>
 
-        <section>
+        <CheckoutCoffeeCard>
           <CoffeCardCart>
             <img src={ImgCoffee} alt="" />
 
-            <InfoCart>
+            <div>
               <span>Expresso Tradicional</span>
 
-              <div>
-                <Counter />
-
-                <button>
-                  <Trash size={16} />
-                  REMOVER
-                </button>
-              </div>
-            </InfoCart>
+              <Counter />
+              <button>
+                <Trash size={16} />
+                REMOVER
+              </button>
+            </div>
 
             <span>R$ 9,90</span>
           </CoffeCardCart>
-          <CoffeCardSummary>
+
+          <CoffeCardCart>
+            <img src={ImgCoffee} alt="" />
+            <div>
+              <span>Expresso Tradicional</span>
+
+              <Counter />
+              <button>
+                <Trash size={16} />
+                REMOVER
+              </button>
+            </div>
+            <span>R$ 9,90</span>
+          </CoffeCardCart>
+
+          <table>
             <tbody>
               <tr>
                 <td>Total de itens</td>
                 <td>R$29,70</td>
-              </tr>{' '}
+              </tr>
               <tr>
-                <td>Total de itens</td>
+                <td>Entrega</td>
                 <td>R$29,70</td>
-              </tr>{' '}
+              </tr>
               <tr>
-                <td>Total de itens</td>
+                <td>Total</td>
                 <td>R$29,70</td>
               </tr>
             </tbody>
-          </CoffeCardSummary>
+          </table>
 
-          <CoffeCardButton>CONFIRMAR PEDIDO</CoffeCardButton>
-        </section>
-      </CheckoutCoffeCard>
+          <button>CONFIRMAR PEDIDO</button>
+        </CheckoutCoffeeCard>
+      </CheckoutCard>
     </CheckoutContainer>
   )
 }
