@@ -12,12 +12,14 @@ import ImgCoffee from '../../assets/img/Coffee.svg'
 import { Counter } from '../../components/Counter'
 
 import {
+  ButtonDelete,
   CheckoutAddressCard,
   CheckoutCard,
   CheckoutCoffeeCard,
   CheckoutContainer,
   CheckoutPayCard,
   CoffeCardCart,
+  ConfirmOrder,
   PayCards,
   Subtitle,
   Title,
@@ -92,12 +94,13 @@ export function Checkout() {
 
             <div>
               <span>Expresso Tradicional</span>
-
-              <Counter />
-              <button>
-                <Trash size={16} />
-                REMOVER
-              </button>
+              <section>
+                <Counter />
+                <ButtonDelete>
+                  <Trash size={16} />
+                  <span>REMOVER</span>
+                </ButtonDelete>
+              </section>
             </div>
 
             <span>R$ 9,90</span>
@@ -105,15 +108,18 @@ export function Checkout() {
 
           <CoffeCardCart>
             <img src={ImgCoffee} alt="" />
+
             <div>
               <span>Expresso Tradicional</span>
-
-              <Counter />
-              <button>
-                <Trash size={16} />
-                REMOVER
-              </button>
+              <section>
+                <Counter />
+                <ButtonDelete>
+                  <Trash size={16} />
+                  <span>REMOVER</span>
+                </ButtonDelete>
+              </section>
             </div>
+
             <span>R$ 9,90</span>
           </CoffeCardCart>
 
@@ -134,7 +140,7 @@ export function Checkout() {
             </tbody>
           </table>
 
-          <button>CONFIRMAR PEDIDO</button>
+          <ConfirmOrder>CONFIRMAR PEDIDO</ConfirmOrder>
         </CheckoutCoffeeCard>
       </CheckoutCard>
     </CheckoutContainer>

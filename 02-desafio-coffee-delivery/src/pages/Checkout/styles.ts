@@ -154,19 +154,6 @@ export const CheckoutCoffeeCard = styled(BaseCard)`
       }
     }
   }
-
-  button {
-    padding: 0.75rem 0.5rem;
-
-    border: 0;
-    border-radius: 6px;
-
-    background: ${(props) => props.theme['yellow-main']};
-
-    color: ${(props) => props.theme.white};
-    font-weight: bold;
-    font-size: 0.875rem;
-  }
 `
 
 export const CoffeCardCart = styled.div`
@@ -178,4 +165,62 @@ export const CoffeCardCart = styled.div`
   padding: 0.5rem 0.25rem;
 
   border-bottom: 1px solid ${(props) => props.theme['base-button']};
+
+  div section {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  div section div {
+    display: flex;
+    gap: 0.5rem;
+  }
+`
+
+export const ButtonDelete = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  padding: 0 0.5rem;
+
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: ${(props) => props.theme['base-button']};
+
+  svg {
+    color: ${(props) => props.theme['purple-main']};
+  }
+
+  span {
+    font-size: 0.75rem;
+
+    text-transform: uppercase;
+    color: ${(props) => props.theme['base-text']};
+  }
+
+  &:hover {
+    background: ${(props) => props.theme['base-hover']};
+    transition: 0.2s;
+  }
+
+  &:select {
+    background: ${(props) => props.theme['purple-light']};
+    border: 1px solid ${(props) => props.theme['purple-main']};
+    transition: 0.2s;
+  }
+`
+
+export const ConfirmOrder = styled.button`
+  background: ${(props) => props.theme['yellow-main']};
+  color: ${(props) => props.theme.white};
+
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  padding: 0.75rem 0.5rem;
+
+  border: 1px solid transparent;
+  border-radius: 6px;
 `
